@@ -7,7 +7,7 @@ import pyaudio
 
 engine = pyttsx3.init()
 engine.setProperty("rate", 150)
-#engine.setProperty("voice", "english-us")
+engine.setProperty("voice", "english-us")
 text = "The parties recently announced they had settled their disputes and entered into a settlement agreement and patent sublicense deal (see the A123 press release here). Some details of the Patent Sublicense Agreement have been made public. Actually a cross-licensing deal, A123 has taken, or will take, a license to lithium metal phosphate patents developed at UT, a family of electrode metal carbon-coating patents, and several lithium metal phosphate patents licensed to H-Q by Nippon Telephone and Telegraph."
 # Save the audio in the current directory as "response.mp3"
 engine.save_to_file(text, "response.mp3")
