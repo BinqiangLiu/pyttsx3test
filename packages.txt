@@ -10,5 +10,3 @@ libportaudiocpp0
 portaudio19-dev
 python3-all-dev
 python3-pyaudio
-python-ffmpeg
-ffmpeg-python
