@@ -3,22 +3,16 @@ import streamlit as st
 import pyttsx3
 import numpy as np
 import os
-
-try:
-    os.mkdir("temp")
-except:
-    pass
+import ffmpeg
 
 # Function to convert text to speech using pyttsx3
 def text_to_speech(text):    
     engine = pyttsx3.init()
     engine.setProperty("rate", 150)
-    engine.setProperty("voice", "english-us")
-    engine.save_to_file(text, f"temp/response.mp3")
-#    engine.save_to_file(text, "response.mp3")     
+    engine.setProperty("voice", "english-us")    
+    engine.save_to_file(text, "response.mp3")     
     engine.runAndWait()
-#    response_audio = open("response.mp3", "rb")
-    response_audio = open(f"temp/response.mp3", "rb")
+    response_audio = open("response.mp3", "rb")    
     audio_bytes = response_audio.read()
 #    with open("response.mp3", "rb") as file:
 #        response_audio = file.read()
