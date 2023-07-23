@@ -1,0 +1,7 @@
+#gradio
+pyttsx3
+python-dotenv
+streamlit
+pyaudio
+soundfile
+numpy
