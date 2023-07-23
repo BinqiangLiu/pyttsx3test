@@ -21,4 +21,4 @@ st.title("Audio to Chat App")
 # Audio output section
 st.header("Step 2: Listen to the AI Response")
 st.audio(audio_bytes, format="audio/mp3", start_time=0)
-st.audio(audio_bytes)
+st.audio("response.mp3")
