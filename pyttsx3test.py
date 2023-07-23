@@ -1,4 +1,3 @@
-#使用这个录音模块：https://pypi.org/project/audio-recorder-streamlit/
 import streamlit as st
 import pyttsx3
 import numpy as np
@@ -25,6 +24,7 @@ def main():
     text = "中华人民共和国People's Republic of China"
         # Audio output section
     st.header("Step 2: Listen to the AI Response")
+    st.audio(text_to_speech(text))
     st.audio(text_to_speech(text), format="audio/mp3", start_time=0)
 #    st.audio(audio_bytes)
 
