@@ -4,18 +4,26 @@ import pyttsx3
 import numpy as np
 import os
 
+try:
+    os.mkdir("temp")
+except:
+    pass
+
 # Function to convert text to speech using pyttsx3
 def text_to_speech(text):    
     engine = pyttsx3.init()
     engine.setProperty("rate", 150)
     engine.setProperty("voice", "english-us")
-    engine.save_to_file(text, "response.mp3")
+    engine.save_to_file(text, f"temp/response.mp3")
+#    engine.save_to_file(text, "response.mp3")     
     engine.runAndWait()
-    response_audio = open("response.mp3", "rb")
+#    response_audio = open("response.mp3", "rb")
+    response_audio = open(f"temp/response.mp3", "rb")
+    audio_bytes = response_audio.read()
 #    with open("response.mp3", "rb") as file:
 #        response_audio = file.read()
     #os.remove("response.mp3")
-    return response_audio
+    return audio_bytes
 
 # Main function to run the Streamlit app
 def main():
@@ -24,7 +32,7 @@ def main():
         # Audio output section
     st.header("Step 2: Listen to the AI Response")
     st.audio(text_to_speech(text), format="audio/mp3", start_time=0)
-#    st.audio(response_audio)
+#    st.audio(audio_bytes)
 
 if __name__ == "__main__":
     main()
