@@ -20,11 +20,11 @@ def text_to_speech(text):
 # Main function to run the Streamlit app
 def main():
     st.title("Audio to Chat App")
-    text = "中华人民共和国"
+    text = "中华人民共和国People's Republic of China"
         # Audio output section
     st.header("Step 2: Listen to the AI Response")
     st.audio(text_to_speech(text), format="audio/mp3", start_time=0)
-    st.audio(response_audio)
+#    st.audio(response_audio)
 
 if __name__ == "__main__":
     main()
