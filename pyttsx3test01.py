@@ -7,7 +7,7 @@ import pyaudio
 
 engine = pyttsx3.init()
 engine.setProperty("rate", 150)
-engine.setProperty("voice", "english-us")
+#engine.setProperty("voice", "english-us")
 text = "中华人民共和国People's Republic of China"
 # Save the audio in the current directory as "response.mp3"
 engine.save_to_file(text, "response.mp3")
