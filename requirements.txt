@@ -5,3 +5,5 @@ streamlit
 pyaudio
 soundfile
 numpy
+ffmpeg
+python-ffmpeg
