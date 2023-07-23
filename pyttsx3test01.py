@@ -2,6 +2,8 @@ import streamlit as st
 import pyttsx3
 import numpy as np
 import os
+import ffmpeg
+import pyaudio
 
 # Function to convert text to speech using pyttsx3
 def text_to_speech(text):    
