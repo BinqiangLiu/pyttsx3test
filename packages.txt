@@ -1,5 +1,6 @@
 build-essential
 espeak
+ffmpeg
 libasound-dev
 libportaudio2
 libespeak-dev
