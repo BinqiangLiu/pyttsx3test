@@ -1,23 +1,25 @@
 import streamlit as st
 import pyttsx3
-import numpy as np
-import os
-import ffmpeg
-import pyaudio
+import io
+from pydub import AudioSegment
 
-# Function to convert text to speech using pyttsx3
+# Function to convert text to speech using pyttsx3 and pydub
 def text_to_speech(text):    
     engine = pyttsx3.init()
     engine.setProperty("rate", 150)
     engine.setProperty("voice", "english-us")
-    # Save the audio in the current directory as "response.mp3"
-    engine.save_to_file(text, "response.mp3")
-    engine.runAndWait()
-    # Read the audio file and return its binary content
-    with open("response.mp3", "rb") as file:
-        audio_bytes = file.read()
-    # Remove the temporary audio file
-    os.remove("response.mp3")
+    
+    # Use pyttsx3 to generate audio
+    mp3_data = io.BytesIO()
+    engine.save_to_file(text, mp3_data)
+    mp3_data.seek(0)
+    
+    # Convert mp3_data to AudioSegment
+    audio = AudioSegment.from_file(mp3_data, format="mp3")
+    
+    # Convert AudioSegment to bytes
+    audio_bytes = audio.export(format="mp3")
+    
     return audio_bytes
 
 # Main function to run the Streamlit app
